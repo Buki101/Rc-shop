@@ -38,12 +38,18 @@ In the theme editor:
 
 ## 3. Configure Find My RC
 
-1. Create a page titled **Find My RC**, preferably with handle `find-my-rc`.
-2. Assign the **page.finder** / **finder** theme template.
-3. Open that page template in the theme editor.
-4. Add an **RC recommendation** block for each product you have verified. Up to 30 blocks are supported.
-5. For each block, select the product, category, minimum experience, suitable space, primary goal, why it fits, and limitations or extras.
-6. Link this page from the main menu and the Hero/Editorial finder links.
+The home page includes the Finder section immediately after Editorial. The Hero's **Find my RC** link and Editorial button open it by default. Custom link destinations still take precedence; leave those fields blank to use the home-page finder. Localised storefront routes are preserved.
+
+In the theme editor:
+
+1. Open the **Home page** and select **Finder**.
+2. Add an **RC recommendation** block for each product you have verified. Up to 30 blocks are supported.
+3. For each block, select the product, category, minimum experience, suitable space, primary goal, why it fits, and limitations or extras.
+4. Save and test the home-page links and recommendations.
+
+Until real products are selected, the finder shows a clear “recommendations coming soon” message, links to the range, and disables matching. It does not create sample stock. With recommendations configured, JavaScript hides the results until the customer submits their preferences. Without JavaScript, the curated range remains visible for browsing.
+
+A separate page is optional: create **Find My RC**, assign the **page.finder** template, configure its own recommendation blocks, and select that page in the Hero and Editorial link settings. Recommendation blocks are configured independently on each template. Add the page or the home-page finder anchor to your Shopify main menu if desired.
 
 The finder is a curated filter, not AI or an automatic scan of every product. It matches the selected category, space and goal, excludes models above the customer's skill level, and checks the cheapest currently available variant against the product budget. It displays all matching configured options. Use one block per product to avoid duplicates.
 
@@ -113,3 +119,9 @@ A Shopify-hosted render, live checkout/account test and browser visual smoothnes
 - Shopify route objects: https://shopify.dev/docs/api/liquid/objects/routes
 
 All editable source is included inside the theme ZIP. No build step, external animation library or application server is required.
+
+## Finder development checks
+
+Run `node tests/finder-browser.cjs` from the repository root. It requires Playwright and Chromium, both provided in this cloud environment. Set `CHROMIUM_EXECUTABLE_PATH` if Chromium is installed elsewhere.
+
+This check loads the actual finder form and theme JavaScript with isolated product fixtures. It exercises initial result hiding, category/experience/space/goal/budget matching, sold-out exclusion, an exact decimal budget boundary, no matches, theme-editor reload, and mobile form layout. It does not render the full Shopify Liquid theme or test real store products. Run Shopify Theme Check separately.

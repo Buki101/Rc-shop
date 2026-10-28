@@ -51,7 +51,7 @@
     "sign_in": "Sign in to your account",
     "sign_in_note": "Use the same email address you used at checkout, then return to My garage.",
     "accounts_soon": "Customer accounts are not available yet.",
-    "finder_intro": "Start with your goals. We will narrow down the configured range to available packages within your product budget.",
+    "finder_intro": "Tell us what you enjoy, where you will use it, and your budget. Find an available model that fits.",
     "finder_category": "What interests you?",
     "choice_plane": "Planes",
     "choice_car": "Cars",
@@ -81,6 +81,8 @@
     "no_match": "No suitable in-stock match within those choices. Try a different budget or browse the range; we have not substituted an unsuitable model.",
     "opening": "Good days are on the horizon.",
     "password": "Store password",
-    "enter": "Enter store"
+    "enter": "Enter store",
+    "finder_prompt": "Choose your preferences, then select Show my matches.",
+    "finder_coming_soon": "We’re putting together our RC recommendations. Browse the range while we get ready."
   }
 }

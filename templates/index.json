@@ -39,11 +39,16 @@
         "1",
         "2"
       ]
+    },
+    "finder": {
+      "type": "finder",
+      "settings": {}
     }
   },
   "order": [
     "0",
     "1",
-    "2"
+    "2",
+    "finder"
   ]
 }

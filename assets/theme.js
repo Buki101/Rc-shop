@@ -12,17 +12,21 @@ const url = new URL(window.location.href); url.searchParams.set('variant', selec
 });
 root.querySelectorAll('[data-finder]:not([data-ready])').forEach(form => {
 form.dataset.ready = 'true';
+const section = form.closest('section');
+const items = section.querySelectorAll('[data-finder-item]');
+const status = section.querySelector('[data-finder-status]');
+items.forEach(item => { item.hidden = true; });
+if (items.length) status.textContent = status.dataset.prompt;
 form.addEventListener('submit', event => {
 event.preventDefault();
-const section = form.closest('section'), data = new FormData(form), budget = Number(data.get('budget')) * 100;
+const data = new FormData(form), budget = Math.round(Number(data.get('budget')) * 100);
 let count = 0;
-section.querySelectorAll('[data-finder-item]').forEach(item => {
+items.forEach(item => {
 const d = item.dataset;
-const match = d.available === 'true' && d.category === data.get('category') && Number(d.skill) <= Number(data.get('skill')) && d.space === data.get('space') && d.goal === data.get('goal') && Number(d.price) > 0 && Number(d.price) <= budget;
+const match = Number.isFinite(budget) && budget > 0 && d.available === 'true' && d.category === data.get('category') && Number(d.skill) <= Number(data.get('skill')) && d.space === data.get('space') && d.goal === data.get('goal') && Number(d.price) > 0 && Number(d.price) <= budget;
 item.hidden = !match;
 if (match) count++;
 });
-const status = section.querySelector('[data-finder-status]');
 status.textContent = count ? `${status.dataset.match} ${count}` : status.dataset.empty;
 });
 });
