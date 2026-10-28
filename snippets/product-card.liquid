@@ -1,0 +1,6 @@
+{% doc %}
+@param {product} item - Product to display
+@param {string} [loading] - Image loading mode
+{% enddoc %}
+{% assign image_loading = loading | default: 'lazy' %}
+<article class="product-card"><a class="product-image" href="{{ item.url }}">{% if item.featured_image %}{{ item.featured_image | image_url: width: 720 | image_tag: widths: '240,360,480,720', sizes: '(min-width: 1000px) 23vw, (min-width: 600px) 45vw, 90vw', loading: image_loading }}{% else %}{{ 'product-1' | placeholder_svg_tag: 'placeholder' }}{% endif %}</a><div class="product-info"><span class="eyebrow muted">{{ item.vendor | escape }}</span><h3><a href="{{ item.url }}">{{ item.title | escape }}</a></h3><div class="product-bottom"><strong>{% if item.price_varies %}{{ 'ui.from' | t }} {% endif %}{{ item.price | money_with_currency }}</strong><a class="circle" href="{{ item.url }}" aria-label="{{ item.title | escape }}">↗</a></div>{% unless item.available %}<span class="muted">{{ 'ui.sold_out' | t }}</span>{% endunless %}</div></article>

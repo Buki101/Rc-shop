@@ -1,0 +1,4 @@
+<section class="wrap section"><h1 class="page-title">{{ 'ui.collections' | t }}</h1>{% paginate collections by 24 %}<div class="product-grid">{% for collection in collections %}<a class="product-card" href="{{ collection.url }}">{% if collection.featured_image %}{{ collection.featured_image | image_url: width: 720 | image_tag: loading: 'lazy', widths: '360,720', sizes: '40vw' }}{% endif %}<h2 class="product-info">{{ collection.title | escape }}</h2></a>{% endfor %}</div>{{ paginate | default_pagination }}{% endpaginate %}</section>
+{% schema %}
+{"name": "Main Collections", "settings": []}
+{% endschema %}

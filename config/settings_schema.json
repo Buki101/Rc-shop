@@ -1,0 +1,35 @@
+[
+  {
+    "name": "Brand and compatibility",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "logo",
+        "label": "Logo"
+      },
+      {
+        "type": "color",
+        "id": "accent",
+        "label": "Accent",
+        "default": "#EF542B"
+      },
+      {
+        "type": "color",
+        "id": "background",
+        "label": "Background",
+        "default": "#F7F7F2"
+      },
+      {
+        "type": "color",
+        "id": "ink",
+        "label": "Text",
+        "default": "#192327"
+      },
+      {
+        "type": "collection",
+        "id": "parts_collection",
+        "label": "Spare parts collection"
+      }
+    ]
+  }
+]

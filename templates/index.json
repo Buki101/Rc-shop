@@ -1,0 +1,49 @@
+{
+  "sections": {
+    "0": {
+      "type": "hero",
+      "settings": {}
+    },
+    "1": {
+      "type": "featured-collection",
+      "settings": {}
+    },
+    "2": {
+      "type": "editorial",
+      "settings": {},
+      "blocks": {
+        "0": {
+          "type": "point",
+          "settings": {
+            "title": "Choose your adventure",
+            "text": "Flying, driving or making waves."
+          }
+        },
+        "1": {
+          "type": "point",
+          "settings": {
+            "title": "Match your experience",
+            "text": "Start with a model that suits your space and confidence."
+          }
+        },
+        "2": {
+          "type": "point",
+          "settings": {
+            "title": "Keep the good days going",
+            "text": "Find the correct spare parts for your exact model."
+          }
+        }
+      },
+      "block_order": [
+        "0",
+        "1",
+        "2"
+      ]
+    }
+  },
+  "order": [
+    "0",
+    "1",
+    "2"
+  ]
+}

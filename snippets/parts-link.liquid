@@ -1,0 +1,4 @@
+{% doc %}
+@param {product} item - Model whose compatible parts should be linked
+{% enddoc %}
+{% if settings.parts_collection != blank %}{% for tag in item.tags %}{% assign prefix = tag | slice: 0, 9 %}{% if prefix == 'rc-model-' %}<a class="button secondary parts-link" href="{{ settings.parts_collection.url }}/{{ tag | handleize }}">{{ 'ui.matching_parts' | t }} →</a>{% break %}{% endif %}{% endfor %}{% endif %}
