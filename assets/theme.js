@@ -15,8 +15,26 @@ form.dataset.ready = 'true';
 const section = form.closest('section');
 const items = section.querySelectorAll('[data-finder-item]');
 const status = section.querySelector('[data-finder-status]');
+const category = form.elements.category;
+const space = form.elements.space;
+const updateSpaces = () => {
+Array.from(space.options).forEach(option => {
+const allowed = option.dataset.categories.split(' ').includes(category.value);
+option.hidden = !allowed;
+option.disabled = !allowed;
+});
+if (!space.selectedOptions.length || space.selectedOptions[0].disabled) {
+space.value = Array.from(space.options).find(option => !option.disabled).value;
+}
+};
+const resetResults = () => {
 items.forEach(item => { item.hidden = true; });
 if (items.length) status.textContent = status.dataset.prompt;
+};
+updateSpaces();
+resetResults();
+form.addEventListener('change', () => { updateSpaces(); resetResults(); });
+form.addEventListener('input', resetResults);
 form.addEventListener('submit', event => {
 event.preventDefault();
 const data = new FormData(form), budget = Math.round(Number(data.get('budget')) * 100);

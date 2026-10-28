@@ -51,6 +51,8 @@ Until real products are selected, the finder shows a clear “recommendations co
 
 A separate page is optional: create **Find My RC**, assign the **page.finder** template, configure its own recommendation blocks, and select that page in the Hero and Editorial link settings. Recommendation blocks are configured independently on each template. Add the page or the home-page finder anchor to your Shopify main menu if desired.
 
+With JavaScript enabled, the space choices follow the selected interest: planes and helicopters offer an open flying field or large clear indoor hall; cars offer open outdoor ground or a large clear indoor hall; boats offer calm open water. A compatible existing selection is retained; otherwise the first suitable space is selected. Changing preferences clears the previous results until the customer submits again. These broad choices do not establish that a particular model is suitable: each recommendation still needs a verified space setting.
+
 The finder is a curated filter, not AI or an automatic scan of every product. It matches the selected category, space and goal, excludes models above the customer's skill level, and checks the cheapest currently available variant against the product budget. It displays all matching configured options. Use one block per product to avoid duplicates.
 
 Only assign beginner suitability after verifying the product. The budget excludes shipping, taxes and any additional equipment. Explain missing transmitter batteries, chargers or other required extras in the product description and recommendation text. No matches produces an explicit empty result rather than substituting an unsuitable model.
@@ -124,4 +126,4 @@ All editable source is included inside the theme ZIP. No build step, external an
 
 Run `node tests/finder-browser.cjs` from the repository root. It requires Playwright and Chromium, both provided in this cloud environment. Set `CHROMIUM_EXECUTABLE_PATH` if Chromium is installed elsewhere.
 
-This check loads the actual finder form and theme JavaScript with isolated product fixtures. It exercises initial result hiding, category/experience/space/goal/budget matching, sold-out exclusion, an exact decimal budget boundary, no matches, theme-editor reload, and mobile form layout. It does not render the full Shopify Liquid theme or test real store products. Run Shopify Theme Check separately.
+This check loads the actual finder form and theme JavaScript with isolated product fixtures. It exercises interest-dependent space options, preserving compatible selections, clearing stale results, initial result hiding, category/experience/space/goal/budget matching, sold-out exclusion, an exact decimal budget boundary, no matches, theme-editor reload, and mobile form layout. It does not render the full Shopify Liquid theme or test real store products. Run Shopify Theme Check separately.
